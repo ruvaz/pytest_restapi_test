@@ -12,4 +12,4 @@ if not APP_URL or not ACCESS_TOKEN:
 FAKER = Faker('en_US')
 SESSION = requests.Session()
 LOG = logging.getLogger()
-
+logging.getLogger('faker.factory').setLevel(logging.ERROR)
