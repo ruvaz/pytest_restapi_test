@@ -7,11 +7,11 @@ from config import APP_URL, LOG, FAKER
 #  source C:/Users/rv1066/.virtualenvs/test_api/Scripts/activate
 # pytest --html=reports/restapi_fwk_report.html --self-contained-html --users 10 tests\users\test_users.py
 
-def test_get_all_users(login_access_token):
-    LOG.info("test_get_all_users")
-    response = Users().get_all_users(APP_URL, login_access_token)
-    LOG.debug(response)
-    assert response.ok
+# def test_get_all_users(login_access_token):
+#     LOG.info("test_get_all_users")
+#     response = Users().get_all_users(APP_URL, login_access_token)
+#     LOG.debug(response)
+#     assert response.ok
 
 
 def test_crud_users(login_access_token):

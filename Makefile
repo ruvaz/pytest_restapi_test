@@ -41,3 +41,12 @@ local:
 .PHONY: dev
 dev: stop rm build local
 
+# Run container and start the application using uvicorn
+.PHONY: server
+server:
+	@echo "--> Starting $(NAME)"
+	docker run $(LOCAL_OPTS) --name $(NAME) -p 8080:8080 -it $(IMAGE) ./suites/all_tests.sh --host 0.0.0.0 --port 8080
+	
+# Run the application
+.PHONY: run
+run: stop rm build server
