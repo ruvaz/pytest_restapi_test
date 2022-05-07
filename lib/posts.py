@@ -1,7 +1,14 @@
 import requests
 from lib.utils import build_request_headers
-from config import SESSION, LOG
+from config import SESSION, LOG,FAKER
 
+
+def generate_fake_post(user_id):
+    return {
+        "user_id": user_id,
+        "title": FAKER.sentence(),
+        "body": FAKER.paragraph(nb_sentences=7)
+    }
 
 class Posts:
     def __init__(self):
