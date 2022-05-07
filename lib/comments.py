@@ -1,6 +1,15 @@
-import requests
 from lib.utils import build_request_headers
-from config import SESSION, LOG
+from config import SESSION, LOG, FAKER
+
+
+def generate_comment(post_id):
+    profile = FAKER.simple_profile()
+    return {
+        "post_id": post_id,
+        "name": profile['name'],
+        "email": profile['mail'],
+        "body": FAKER.sentence()
+    }
 
 
 class Comments:
