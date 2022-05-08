@@ -1,9 +1,9 @@
 # common utils
-from config import LOG, FAKER
+from config import LOG, CONTENT_TYPE_JSON
 
 
 # require to have a previous token
-def build_request_headers(access_token, accept_type="application/json", **kwargs):
+def build_request_headers(access_token, accept_type=CONTENT_TYPE_JSON, **kwargs):
     LOG.info("build_request_headers")
     headers = {
         "Authorization": f"Bearer {access_token}",
@@ -11,13 +11,5 @@ def build_request_headers(access_token, accept_type="application/json", **kwargs
     }
     if "content_type" in kwargs:
         headers["Content-Type"] = kwargs["content_type"]
-
-    # LOG.debug(f"Request headers: {headers}")
-
+    LOG.debug(f"Request headers: {headers}")
     return headers
-
-
-
-
-
-

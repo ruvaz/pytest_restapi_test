@@ -45,8 +45,8 @@ dev: stop rm build local
 .PHONY: server
 server:
 	@echo "--> Starting $(NAME)"
-	docker run $(LOCAL_OPTS) --name $(NAME) -p 8080:8080 -it $(IMAGE) ./suites/all_tests.sh --host 0.0.0.0 --port 8080
-	
+	docker run $(LOCAL_OPTS) --name $(NAME) -p 8080:8080 --env-file secrets.ini -it $(IMAGE) /bin/bash suites/all_tests.sh
+
 # Run the application
 .PHONY: run
 run: stop rm build server
