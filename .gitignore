@@ -6,5 +6,5 @@ venv
 .DS_Store
 *.html
 **/.pytest_cache/
-secrets.ini
+secrets.env
 reports/
